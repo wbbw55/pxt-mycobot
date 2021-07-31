@@ -67,7 +67,7 @@ namespace myCobot {
         serial.writeBuffer(cmd);
     }
     
-    //% blockId=init block="Initialization Use Serial: TX= |%tx|, RX= |%rx|"
+    //% blockId=init block="[myCobot] Initialization Use Serial: TX= |%tx|, RX= |%rx|"
     //% blockExternalInputs=1
     //% tx.fieldEditor="gridpicker" tx.fieldOptions.columns=3
     //% tx.fieldOptions.tooltips="false"
@@ -93,7 +93,7 @@ namespace myCobot {
         serial.readBuffer(0);
     }
 
-    //% blockId=setEndCoords block="Set The End Coordinates: X= $x| , Y= $y| , Z= $z| , RX= $rx| , RY= $ry| , RZ= $rz| , Speed= $speed| \\%"
+    //% blockId=setEndCoords block="[myCobot] Set The End Coordinates: X= $x| , Y= $y| , Z= $z| , RX= $rx| , RY= $ry| , RZ= $rz| , Speed= $speed| \\%"
     //% x.min=-300 x.max=300
     //% x.defl=-14
     //% y.min=-300 y.max=300
@@ -160,7 +160,7 @@ namespace myCobot {
         serial.readBuffer(0);
     }
     
-    //% blockId=getEndCoord block="Coordinate |%coord| Of The End"
+    //% blockId=getEndCoord block="[myCobot] Coordinate |%coord| Of The End"
     //% weight=35
     //% group="Basic"
     export function getEndCoord(coord:COORD): number {
@@ -185,7 +185,7 @@ namespace myCobot {
         return val;
     }
     
-    //% blockId=setLedColor block="Set The Screen Color: Red= $r| , Green= $g| , Blue= $b|"
+    //% blockId=setLedColor block="[myCobot] Set The Screen Color: Red= $r| , Green= $g| , Blue= $b|"
     //% r.min=0 r.max=255
     //% r.defl=127
     //% g.min=0 g.max=255
@@ -209,7 +209,7 @@ namespace myCobot {
         basic.pause(100);
     }
 
-    //% blockId=setGripperMode block="Set The Gripper: Mode= |%mode| , Speed= $speed| \\%"
+    //% blockId=setGripperMode block="[myCobot] Set The Gripper: Mode= |%mode| , Speed= $speed| \\%"
     //% speed.min=0 speed.max=100
     //% speed.defl=50
     //% weight=55
@@ -229,7 +229,7 @@ namespace myCobot {
         serial.readBuffer(0);
     }
 
-    //% blockId=setPumpMode block="Set The Pump: Mode= |%mode|"
+    //% blockId=setPumpMode block="[myCobot] Set The Pump: Mode= |%mode|"
     //% weight=65
     //% group="Basic"
     export function setPumpMode(mode:ONOFF): void {
@@ -238,7 +238,7 @@ namespace myCobot {
         basic.pause(100);
     }
 
-    //% blockId=setJogOn block="Set The Jog Mode: Joint= |%joint| , Direction= |%dir| , Speed= $speed| \\%"
+    //% blockId=setJogOn block="[myCobot] Set The Jog Mode: Joint= |%joint| , Direction= |%dir| , Speed= $speed| \\%"
     //% speed.min=0 speed.max=100
     //% speed.defl=50
     //% weight=115
@@ -259,7 +259,7 @@ namespace myCobot {
         serial.readBuffer(0);
     }
 
-    //% blockId=setJogOff block="Set All The Jog Off"
+    //% blockId=setJogOff block="[myCobot] Set All The Jog Off"
     //% weight=125
     //% group="Advance"
     export function setJogOff(): void {
@@ -275,7 +275,7 @@ namespace myCobot {
         serial.readBuffer(0);
     }
 
-    //% blockId=setServoAngle block="Set The Servo Angle: Servo= |%servo| , Angle= $angle| , Speed= $speed| \\%"
+    //% blockId=setServoAngle block="[myCobot] Set The Servo |%servo| : Angle= $angle| , Speed= $speed| \\%"
     //% angle.min=-180 angle.max=180
     //% angle.defl=0
     //% speed.min=0 speed.max=100
@@ -303,7 +303,7 @@ namespace myCobot {
         serial.readBuffer(0);
     }    
     
-    //% blockId=getServoAngle block="Angle Of The Servo= |%servo|"
+    //% blockId=getServoAngle block="[myCobot] Angle Of The Servo= |%servo|"
     //% weight=145
     //% group="Advance"
     export function getServoAngle(servo:SERVO): number {
@@ -324,7 +324,7 @@ namespace myCobot {
         return val;
     }
     
-    //% blockId=setServoFree block="Set The Servo |%servo| Free"
+    //% blockId=setServoFree block="[myCobot] Set The Servo |%servo| Free"
     //% weight=155
     //% group="Advance"
     export function setServoFree(servo:SERVO): void {
@@ -340,7 +340,7 @@ namespace myCobot {
         serial.readBuffer(0);
     }
         
-    //% blockId=setServoHold block="Set The Servo |%servo| Hold"
+    //% blockId=setServoHold block="[myCobot] Set The Servo |%servo| Hold"
     //% weight=165
     //% group="Advance"
     export function setServoHold(servo:SERVO): void {
