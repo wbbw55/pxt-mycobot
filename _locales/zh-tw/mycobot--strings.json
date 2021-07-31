@@ -1,0 +1,21 @@
+{
+    "Car101.MOTOR.M2|block": "左前輪",
+    "Car101.MOTOR.M1|block": "右前輪",
+    "Car101.MOTOR.M3|block": "左後輪",
+    "Car101.MOTOR.M4|block": "右後輪",
+    "Car101.LIGHT.FRONT_LEFT|block": "左前燈",
+    "Car101.LIGHT.FRONT_RIGHT|block": "右前燈",
+    "Car101.LIGHT.BACK|block": "後剎車燈",
+    "Car101.DisableCar|block": "小車熄火",
+    "Car101.EnableCar|block": "小車發動",
+    "Car101.CarBrake|block": "小車剎車",
+    "Car101.SetMecanum|block": "小車行駛：X方向速度$x|\\%，Y方向速度$y|\\%，A自轉速度$a|\\%",
+    "Car101.LightOff|block": "關閉車燈|%light|",
+    "Car101.LightOn|block": "打開車燈|%light|",
+    "Car101.SetBrake|block": "設置剎車|%motor|",
+    "Car101.SetMotor|block": "設置車輪|%motor|速度為$speed|\\%",
+    "Car101.GetSensor|block": "前方距離（毫米）",
+    "{id:category}Car101": "小車101",
+    "{id:group}Basic": "基本",
+    "{id:group}Advance": "高級"
+}

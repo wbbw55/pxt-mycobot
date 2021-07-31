@@ -1,0 +1,18 @@
+{
+    "name": "myCobot",
+    "version": "0.1.1",
+    "description": "Extension for myCobot module",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "mycobot.ts",
+        "_locales/zh-cn/mycobot-strings.json",
+        "_locales/zh-tw/mycobot-strings.json"
+    ],
+    "public": false,
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
