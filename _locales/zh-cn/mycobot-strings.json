@@ -1,21 +1,2 @@
 {
-    "Car101.MOTOR.M2|block": "左前轮",
-    "Car101.MOTOR.M1|block": "右前轮",
-    "Car101.MOTOR.M3|block": "左后轮",
-    "Car101.MOTOR.M4|block": "右后轮",
-    "Car101.LIGHT.FRONT_LEFT|block": "左前灯",
-    "Car101.LIGHT.FRONT_RIGHT|block": "右前灯",
-    "Car101.LIGHT.BACK|block": "后刹车灯",
-    "Car101.DisableCar|block": "小车熄火",
-    "Car101.EnableCar|block": "小车发动",
-    "Car101.CarBrake|block": "小车刹车",
-    "Car101.SetMecanum|block": "小车行驶：X方向速度$x|\\%，Y方向速度$y|\\%，A自转速度$a|\\%",
-    "Car101.LightOff|block": "关闭车灯|%light|",
-    "Car101.LightOn|block": "打开车灯|%light|",
-    "Car101.SetBrake|block": "设置刹车|%motor|",
-    "Car101.SetMotor|block": "设置车轮|%motor|速度为$speed|\\%",
-    "Car101.GetSensor|block": "前方距离（毫米）",
-    "{id:category}Car101": "小车101",
-    "{id:group}Basic": "基本",
-    "{id:group}Advance": "高级"
 }
