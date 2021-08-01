@@ -76,6 +76,7 @@ namespace myCobot {
     //% weight=15
     //% group="Basic"
     export function init(tx:SerialPin, rx:SerialPin): void {
+        basic.pause(2000);
         serial.redirect(tx, rx, BaudRate.BaudRate115200);
         basic.pause(100);
         serial.setTxBufferSize(64);

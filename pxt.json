@@ -6,9 +6,13 @@
         "core": "*"
     },
     "files": [
+        "README.md",
         "mycobot.ts",
         "_locales/zh-cn/mycobot-strings.json",
         "_locales/zh-tw/mycobot-strings.json"
+    ],
+    "testFiles": [
+        "test.ts"
     ],
     "public": false,
     "supportedTargets": [
