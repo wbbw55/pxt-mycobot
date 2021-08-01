@@ -122,7 +122,7 @@ namespace myCobot {
     //% blockId=setEndCoords block="[myCobot] Set The End Coordinates: X= $x| , Y= $y| , Z= $z| , RX= $rx| , RY= $ry| , RZ= $rz| , Speed= $speed| \\%"
     //% x.min=-300 x.max=300
     //% x.defl=-14
-    //% x.fieldOptions.precision=4
+    //% x.fieldOptions.step=0.1
     //% y.min=-300 y.max=300
     //% y.defl=-27
     //% y.fieldOptions.precision=4
@@ -307,6 +307,7 @@ namespace myCobot {
     //% angle.min=-180 angle.max=180
     //% angle.defl=0
     //% angle.fieldOptions.precision=5
+    //% angle.fieldOptions.step=0.01
     //% speed.min=0 speed.max=100
     //% speed.defl=50
     //% weight=85
