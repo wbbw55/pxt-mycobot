@@ -73,7 +73,7 @@ namespace myCobot {
     //% tx.fieldOptions.tooltips="false"
     //% rx.fieldEditor="gridpicker" rx.fieldOptions.columns=3
     //% rx.fieldOptions.tooltips="false"
-    //% weight=15
+    //% weight=95
     //% group="Basic"
     export function init(tx:SerialPin, rx:SerialPin): void {
         basic.pause(2000);
@@ -109,7 +109,7 @@ namespace myCobot {
     //% rz.defl=-90.7
     //% speed.min=0 speed.max=100
     //% speed.defl=50
-    //% weight=25
+    //% weight=90
     //% group="Basic"
     export function setEndCoords(x:number, y:number, z:number, rx:number, ry:number, rz:number, speed:number): void {
         x *= 10;
@@ -162,7 +162,7 @@ namespace myCobot {
     }
     
     //% blockId=getEndCoord block="<myCobot> Coordinate |%coord| Of The End"
-    //% weight=35
+    //% weight=85
     //% group="Basic"
     export function getEndCoord(coord:COORD): number {
         serial.readBuffer(0);
@@ -193,7 +193,7 @@ namespace myCobot {
     //% g.defl=127
     //% b.min=0 b.max=255
     //% b.defl=127
-    //% weight=45
+    //% weight=80
     //% group="Basic"
     export function setLedColor(r:number, g:number, b:number): void {
         serial.readBuffer(0);
@@ -213,7 +213,7 @@ namespace myCobot {
     //% blockId=setGripperMode block="<myCobot> Set The Gripper: Mode= |%mode| , Speed= $speed| \\%"
     //% speed.min=0 speed.max=100
     //% speed.defl=50
-    //% weight=55
+    //% weight=75
     //% group="Basic"
     export function setGripperMode(mode:OPENCLOSE, speed:number): void {
         serial.readBuffer(0);
@@ -231,7 +231,7 @@ namespace myCobot {
     }
 
     //% blockId=setPumpMode block="<myCobot> Set The Pump: Mode= |%mode|"
-    //% weight=65
+    //% weight=70
     //% group="Basic"
     export function setPumpMode(mode:ONOFF): void {
         myCobotBasicIo(2, mode);
@@ -242,7 +242,7 @@ namespace myCobot {
     //% blockId=setJogOn block="<myCobot> Set The Jog Mode: Joint= |%joint| , Direction= |%dir| , Speed= $speed| \\%"
     //% speed.min=0 speed.max=100
     //% speed.defl=50
-    //% weight=115
+    //% weight=65
     //% group="Advance"
     export function setJogOn(joint:SERVO, dir:DIR, speed:number): void {
         serial.readBuffer(0);
@@ -261,7 +261,7 @@ namespace myCobot {
     }
 
     //% blockId=setJogOff block="<myCobot> Set All The Jog Off"
-    //% weight=125
+    //% weight=60
     //% group="Advance"
     export function setJogOff(): void {
         serial.readBuffer(0);
@@ -281,7 +281,7 @@ namespace myCobot {
     //% angle.defl=0
     //% speed.min=0 speed.max=100
     //% speed.defl=50
-    //% weight=135
+    //% weight=55
     //% group="Advance"
     export function setServoAngle(servo:SERVO, angle:number, speed:number): void {
         serial.readBuffer(0);
@@ -305,7 +305,7 @@ namespace myCobot {
     }    
     
     //% blockId=getServoAngle block="<myCobot> Angle Of The Servo= |%servo|"
-    //% weight=145
+    //% weight=50
     //% group="Advance"
     export function getServoAngle(servo:SERVO): number {
         serial.readBuffer(0);
@@ -326,7 +326,7 @@ namespace myCobot {
     }
     
     //% blockId=setServoFree block="<myCobot> Set The Servo |%servo| Free"
-    //% weight=155
+    //% weight=45
     //% group="Advance"
     export function setServoFree(servo:SERVO): void {
         cmd = pins.createBuffer(6);
@@ -342,7 +342,7 @@ namespace myCobot {
     }
         
     //% blockId=setServoHold block="<myCobot> Set The Servo |%servo| Hold"
-    //% weight=165
+    //% weight=40
     //% group="Advance"
     export function setServoHold(servo:SERVO): void {
         cmd = pins.createBuffer(6);
