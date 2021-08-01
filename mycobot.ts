@@ -67,7 +67,7 @@ namespace myCobot {
         serial.writeBuffer(cmd);
     }
     
-    //% blockId=init block="[myCobot] Initialization Use Serial: TX= |%tx|, RX= |%rx|"
+    //% blockId=devInit block="[myCobot] Initialization Use Serial: TX= |%tx|, RX= |%rx|"
     //% blockExternalInputs=1
     //% tx.fieldEditor="gridpicker" tx.fieldOptions.columns=3
     //% tx.fieldOptions.tooltips="false"
@@ -75,7 +75,7 @@ namespace myCobot {
     //% rx.fieldOptions.tooltips="false"
     //% weight=95
     //% group="Basic"
-    export function init(tx:SerialPin, rx:SerialPin): void {
+    export function devInit(tx:SerialPin, rx:SerialPin): void {
         basic.pause(2000);
         serial.redirect(tx, rx, BaudRate.BaudRate115200);
         basic.pause(100);

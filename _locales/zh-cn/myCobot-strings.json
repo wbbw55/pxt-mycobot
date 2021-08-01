@@ -17,7 +17,7 @@
     "myCobot.ONOFF.OFF|block": "关闭",
     "myCobot.OPENCLOSE.OPEN|block": "张开",
     "myCobot.OPENCLOSE.CLOSE|block": "收拢",
-    "myCobot.init|block": "初始化机械臂：TX=|%tx|，RX=|%rx|",
+    "myCobot.devInit|block": "初始化机械臂：TX=|%tx|，RX=|%rx|",
     "myCobot.setEndCoords|block": "移动机械臂末端至坐标：X=$x|，Y=$y|，Z=$z|，RX=$rx|，RY=$ry|，RZ=$rz|，速度=$speed|\\%",
     "myCobot.getEndCoord|block": "机械臂末端的当前坐标|%coord|",
     "myCobot.setLedColor|block": "设置机械臂末端LED颜色：Red=$r|，Green=$g|，Blue=$b|",
