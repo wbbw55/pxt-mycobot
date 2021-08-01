@@ -1,6 +1,6 @@
 {
     "name": "myCobot",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Extension for myCobot module",
     "dependencies": {
         "core": "*"
@@ -8,8 +8,8 @@
     "files": [
         "README.md",
         "mycobot.ts",
-        "_locales/zh-cn/mycobot-strings.json",
-        "_locales/zh-tw/mycobot-strings.json"
+        "_locales/zh-cn/myCobot-strings.json",
+        "_locales/zh-tw/myCobot-strings.json"
     ],
     "testFiles": [
         "test.ts"
