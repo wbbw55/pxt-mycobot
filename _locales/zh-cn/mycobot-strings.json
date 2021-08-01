@@ -29,7 +29,7 @@
     "myCobot.getServoAngle|block": "机械臂舵机|%servo|的当前角度",
     "myCobot.setServoFree|block": "释放机械臂舵机|%servo|（掉电）",
     "myCobot.setServoHold|block": "锁定机械臂舵机|%servo|（上电）",
-    "{id:category}myCobot": "myCobot",
+    "{id:category}myCobot": "小象机械臂",
     "{id:group}Basic": "基本",
     "{id:group}Advance": "高级"
 }
