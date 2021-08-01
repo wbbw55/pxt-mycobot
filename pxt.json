@@ -1,6 +1,6 @@
 {
     "name": "myCobot",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "description": "Extension for myCobot module",
     "dependencies": {
         "core": "*"
