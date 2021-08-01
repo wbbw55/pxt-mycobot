@@ -93,6 +93,31 @@ namespace myCobot {
         myCobot.setPumpMode(ONOFF.OFF);
         serial.readBuffer(0);
     }
+    
+    //% blockId=getEndCoord block="[myCobot] Coordinate |%coord| Of The End"
+    //% weight=85
+    //% group="Basic"
+    export function getEndCoord(coord:COORD): number {
+        serial.readBuffer(0);
+        cmd = pins.createBuffer(5);
+        cmd[0] = 0xFE;
+        cmd[1] = 0xFE;
+        cmd[2] = 0x02;
+        cmd[3] = 0x23;  // r96+17
+        cmd[4] = 0xFA;
+        serial.writeBuffer(cmd);
+        let res = serial.readBuffer(113);        
+        let mul = 10.0;
+        let val = res[98+coord*2]*256 + res[99+coord*2];
+        if (coord>3) {
+            mul = 100.0;
+        }
+        if (val>33000) {
+            val -= 65536;
+        }
+        val = val/mul;
+        return val;
+    }
 
     //% blockId=setEndCoords block="[myCobot] Set The End Coordinates: X= $x| , Y= $y| , Z= $z| , RX= $rx| , RY= $ry| , RZ= $rz| , Speed= $speed| \\%"
     //% x.min=-300 x.max=300
@@ -161,31 +186,6 @@ namespace myCobot {
         serial.readBuffer(0);
     }
     
-    //% blockId=getEndCoord block="[myCobot] Coordinate |%coord| Of The End"
-    //% weight=85
-    //% group="Basic"
-    export function getEndCoord(coord:COORD): number {
-        serial.readBuffer(0);
-        cmd = pins.createBuffer(5);
-        cmd[0] = 0xFE;
-        cmd[1] = 0xFE;
-        cmd[2] = 0x02;
-        cmd[3] = 0x23;  // r96+17
-        cmd[4] = 0xFA;
-        serial.writeBuffer(cmd);
-        let res = serial.readBuffer(113);        
-        let mul = 10.0;
-        let val = res[98+coord*2]*256 + res[99+coord*2];
-        if (coord>3) {
-            mul = 100.0;
-        }
-        if (val>33000) {
-            val -= 65536;
-        }
-        val = val/mul;
-        return val;
-    }
-    
     //% blockId=setLedColor block="[myCobot] Set The Screen Color: Red= $r| , Green= $g| , Blue= $b|"
     //% r.min=0 r.max=255
     //% r.defl=127
@@ -210,6 +210,15 @@ namespace myCobot {
         basic.pause(100);
     }
 
+    //% blockId=setPumpMode block="[myCobot] Set The Pump: Mode= |%mode|"
+    //% weight=65
+    //% group="Basic"
+    export function setPumpMode(mode:ONOFF): void {
+        myCobotBasicIo(2, mode);
+        myCobotBasicIo(5, mode);
+        basic.pause(100);
+    }
+
     //% blockId=setGripperMode block="[myCobot] Set The Gripper: Mode= |%mode| , Speed= $speed| \\%"
     //% speed.min=0 speed.max=100
     //% speed.defl=50
@@ -230,13 +239,20 @@ namespace myCobot {
         serial.readBuffer(0);
     }
 
-    //% blockId=setPumpMode block="[myCobot] Set The Pump: Mode= |%mode|"
-    //% weight=65
-    //% group="Basic"
-    export function setPumpMode(mode:ONOFF): void {
-        myCobotBasicIo(2, mode);
-        myCobotBasicIo(5, mode);
+    //% blockId=setJogOff block="[myCobot] Set All The Jog Off"
+    //% weight=95
+    //% group="Advance"
+    export function setJogOff(): void {
+        serial.readBuffer(0);
+        cmd = pins.createBuffer(5);
+        cmd[0] = 0xFE;
+        cmd[1] = 0xFE;
+        cmd[2] = 0x02;
+        cmd[3] = 0x34;  // r140
+        cmd[4] = 0xFA;
+        serial.writeBuffer(cmd);
         basic.pause(100);
+        serial.readBuffer(0);
     }
 
     //% blockId=setJogOn block="[myCobot] Set The Jog Mode: Joint= |%joint| , Direction= |%dir| , Speed= $speed| \\%"
@@ -259,21 +275,26 @@ namespace myCobot {
         basic.pause(100);
         serial.readBuffer(0);
     }
-
-    //% blockId=setJogOff block="[myCobot] Set All The Jog Off"
-    //% weight=95
+    
+    //% blockId=getServoAngle block="[myCobot] Angle Of The Servo= |%servo|"
+    //% weight=85
     //% group="Advance"
-    export function setJogOff(): void {
+    export function getServoAngle(servo:SERVO): number {
         serial.readBuffer(0);
         cmd = pins.createBuffer(5);
         cmd[0] = 0xFE;
         cmd[1] = 0xFE;
         cmd[2] = 0x02;
-        cmd[3] = 0x34;  // r140
+        cmd[3] = 0x20;  // r96+17
         cmd[4] = 0xFA;
         serial.writeBuffer(cmd);
-        basic.pause(100);
-        serial.readBuffer(0);
+        let res = serial.readBuffer(113);        
+        let val = res[98+servo*2]*256 + res[99+servo*2];
+        if (val>33000) {
+            val -= 65536;
+        }
+        val = val/100.0;
+        return val;
     }
 
     //% blockId=setServoAngle block="[myCobot] Set The Servo |%servo| : Angle= $angle| , Speed= $speed| \\%"
@@ -303,26 +324,21 @@ namespace myCobot {
         basic.pause(100);
         serial.readBuffer(0);
     }    
-    
-    //% blockId=getServoAngle block="[myCobot] Angle Of The Servo= |%servo|"
-    //% weight=85
+        
+    //% blockId=setServoHold block="[myCobot] Set The Servo |%servo| Hold"
+    //% weight=75
     //% group="Advance"
-    export function getServoAngle(servo:SERVO): number {
-        serial.readBuffer(0);
-        cmd = pins.createBuffer(5);
+    export function setServoHold(servo:SERVO): void {
+        cmd = pins.createBuffer(6);
         cmd[0] = 0xFE;
         cmd[1] = 0xFE;
-        cmd[2] = 0x02;
-        cmd[3] = 0x20;  // r96+17
-        cmd[4] = 0xFA;
+        cmd[2] = 0x03;
+        cmd[3] = 0x57;  // r42
+        cmd[4] = servo;
+        cmd[5] = 0xFA;
         serial.writeBuffer(cmd);
-        let res = serial.readBuffer(113);        
-        let val = res[98+servo*2]*256 + res[99+servo*2];
-        if (val>33000) {
-            val -= 65536;
-        }
-        val = val/100.0;
-        return val;
+        basic.pause(100);
+        serial.readBuffer(0);
     }
     
     //% blockId=setServoFree block="[myCobot] Set The Servo |%servo| Free"
@@ -334,22 +350,6 @@ namespace myCobot {
         cmd[1] = 0xFE;
         cmd[2] = 0x03;
         cmd[3] = 0x56;  // r42
-        cmd[4] = servo;
-        cmd[5] = 0xFA;
-        serial.writeBuffer(cmd);
-        basic.pause(100);
-        serial.readBuffer(0);
-    }
-        
-    //% blockId=setServoHold block="[myCobot] Set The Servo |%servo| Hold"
-    //% weight=75
-    //% group="Advance"
-    export function setServoHold(servo:SERVO): void {
-        cmd = pins.createBuffer(6);
-        cmd[0] = 0xFE;
-        cmd[1] = 0xFE;
-        cmd[2] = 0x03;
-        cmd[3] = 0x57;  // r42
         cmd[4] = servo;
         cmd[5] = 0xFA;
         serial.writeBuffer(cmd);
