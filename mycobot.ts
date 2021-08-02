@@ -73,6 +73,7 @@ namespace myCobot {
     //% tx.fieldOptions.tooltips="false"
     //% rx.fieldEditor="gridpicker" rx.fieldOptions.columns=3
     //% rx.fieldOptions.tooltips="false"
+    //% inlineInputMode=inline
     //% weight=95
     //% group="Basic"
     export function devInit(tx:SerialPin, rx:SerialPin): void {
@@ -120,20 +121,15 @@ namespace myCobot {
     }
 
     //% blockId=setEndCoords block="[myCobot] Set The End Coordinates: X= $x| , Y= $y| , Z= $z| , RX= $rx| , RY= $ry| , RZ= $rz| , Speed= $speed| \\%"
-    //% x.min=-300.0 x.max=300.0
     //% x.defl=-14
-    //% y.min=-300.0 y.max=300.0
     //% y.defl=-27
-    //% z.min=-300.0 z.max=300.0
     //% z.defl=275
-    //% rx.min=-180.00 rx.max=180.00
     //% rx.defl=-89.5
-    //% ry.min=-180.00 ry.max=180.00
-    //% ry.defl=0.7
-    //% rz.min=-180.00 rz.max=180.00
-    //% rz.defl=-90.7
+    //% ry.defl=0.75
+    //% rz.defl=-90.75
     //% speed.min=0 speed.max=100
     //% speed.defl=50
+    //% inlineInputMode=inline
     //% weight=85
     //% group="Basic"
     export function setEndCoords(x:number, y:number, z:number, rx:number, ry:number, rz:number, speed:number): void {
@@ -298,7 +294,6 @@ namespace myCobot {
     }
 
     //% blockId=setServoAngle block="[myCobot] Set The Servo |%servo| : Angle= $angle| , Speed= $speed| \\%"
-    //% angle.min=-180.00 angle.max=180.00
     //% angle.defl=0
     //% speed.min=0 speed.max=100
     //% speed.defl=50
