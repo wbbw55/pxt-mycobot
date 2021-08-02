@@ -71,8 +71,10 @@ namespace myCobot {
     //% blockExternalInputs=1
     //% tx.fieldEditor="gridpicker" tx.fieldOptions.columns=3
     //% tx.fieldOptions.tooltips="false"
+    //% tx.defl=SerialPin.P0
     //% rx.fieldEditor="gridpicker" rx.fieldOptions.columns=3
     //% rx.fieldOptions.tooltips="false"
+    //% rx.defl=SerialPin.P1
     //% inlineInputMode=inline
     //% weight=95
     //% group="Basic"
