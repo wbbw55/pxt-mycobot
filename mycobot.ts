@@ -213,6 +213,7 @@ namespace myCobot {
     //% group="Basic"
     export function setPumpMode(mode:ONOFF): void {
         myCobotBasicIo(2, mode);
+        basic.pause(100);
         myCobotBasicIo(5, mode);
         basic.pause(100);
     }
